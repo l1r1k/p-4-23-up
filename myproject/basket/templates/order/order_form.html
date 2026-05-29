@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title_name %}
+Оформление заказа
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Оформление заказа</h1>
+    <form action="{% url 'basket_buy' %}" method="post">
+        {% csrf_token %}
+        {{ form_order.as_div }}
+        <button type="submit" class="btn btn-outline-primary">Оформить заказ</button>
+    </form>
+    <a href="{% url 'basket_detail' %}" class="btn btn-outline-dark">Вернуться в корзину</a>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
+{% endblock %}

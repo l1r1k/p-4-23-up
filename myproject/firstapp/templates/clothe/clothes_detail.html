@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title_name %}Подробная информация по "{{ clothes.name }}"{% endblock %}
+
+{% block main_class %}container{% endblock %}
+
+{% block content %}
+<h1>Подробная информация по "{{ clothes.name }}"</h1>
+<img src="{{ clothes.photo.url }}" style="max-height: 300px; max-width: 450px;"/>
+<p>Описание: {{ clothes.description }}</p>
+<p>Цена: {{ clothes.price }} рублей.</p>
+<p>Размер: {{ clothes.size }}</p>
+<p>Категория: {{ clothes.category }}</p>
+<p>Можно заказать? {% if clothes.is_exists %}Да{% else %}Нет{% endif %}</p>
+<p>Коллекции: {% for collection in clothes.collections.all %} {{ collection.name }}{% if not forloop.last%}, {% else %}.{% endif %}{% endfor %}</p>
+<p>Дата добавления: {{ clothes.created_at}}.<br/>Дата последнего изменения: {{ clothes.updated_at}}</p>
+<a href="{% url 'clothes_list' %}">Назад</a>
+<a href="{% url 'clothes_update' clothes.pk %}">Редактировать</a>
+<a href="{% url 'clothes_delete' clothes.pk %}">Удалить</a>
+
+<form action="{% url 'basket_add' clothes.pk %}" method="post">
+    {% csrf_token %}
+    {{ form_basket }}
+    <button type="submit">Добавить в корзину</button>
+</form>
+{% endblock %}

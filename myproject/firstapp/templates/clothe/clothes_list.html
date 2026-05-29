@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title_name %}Управление одеждой{% endblock %}
+
+{% block main_class %}container{% endblock %}
+
+{% block content %}
+<h1>Одежда</h1>
+<a href="{% url 'clothes_create'%}">Добавить одежду</a>
+{% if clothes %}
+<h2>Вся одежда: </h2>
+{% endif %}
+<div>
+    {% for clothe in clothes %}
+        <div>
+            <a href="{% url 'clothes_detail' clothe.pk %}">{{ clothe.name }}</a>
+            <a href="{% url 'clothes_update' clothe.pk %}">Редактировать</a>
+            <a href="{% url 'clothes_delete' clothe.pk %}">Удалить</a>
+        </div>
+    {% empty %}
+        <div>Одежды пока нет!</div>
+    {% endfor %}
+<div>
+{% endblock %}

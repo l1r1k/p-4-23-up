@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title_name %} Главная {% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Новая Весенняя Коллекция</h1>
+    <p>Откройте для себя стиль, который подчеркнет вашу индивидуальность. Качественные материалы и современный дизайн.</p>
+    <a href="#" class="btn">В каталог</a>
+</section>
+
+<section class="categories">
+    <h2>Популярные категории</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-img" style="background: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=300&q=80') center/cover;"></div>
+            <div class="card-info">
+                <h3>Женская одежда</h3>
+                <a href="#" style="color: #d9534f; font-weight: bold;">Смотреть &rarr;</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img" style="background: url('https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=300&q=80') center/cover;"></div>
+            <div class="card-info">
+                <h3>Мужская одежда</h3>
+                <a href="#" style="color: #d9534f; font-weight: bold;">Смотреть &rarr;</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img" style="background: url('https://kupiremen.ru/upload/iblock/1ce/1ced8558958f6f19732b611464163054.jpg') center/cover;"></div>
+            <div class="card-info">
+                <h3>Аксессуары</h3>
+                <a href="#" style="color: #d9534f; font-weight: bold;">Смотреть &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

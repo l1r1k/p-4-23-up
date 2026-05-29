@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title_name %}{% if form.instance.pk %}Редактировать одежду{% else %}Добавить одежду{% endif %}{% endblock %}
+
+{% block main_class %}container{% endblock %}
+
+{% block content %}
+<h1>{% if form.instance.pk %}Редактировать одежду{% else %}Добавить одежду{% endif %}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'clothes_list' %}">Назад</a>
+{% endblock %}

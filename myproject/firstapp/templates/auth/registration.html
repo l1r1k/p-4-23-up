@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_name %}
+Регистрация
+{% endblock %}
+
+{% block main_class %}container{% endblock %}
+
+{% block content %}
+    <h1>Регистрация</h1>
+
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Создать аккаунт</button>
+        </form>
+        
+        <a href="{% url 'login_page' %}">Есть аккаунт? Войти</a>
+    </div>
+{% endblock %}

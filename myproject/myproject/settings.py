@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'firstapp',
     'basket',
+    'rest_framework',
+    'api_shop',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +139,9 @@ BASKET_SESSION_ID = 'basket'
 # Login block
 
 LOGIN_URL = '/login/'
+
+# REST FRAMEWORK
+
+REST_FRAMEWORK = {
+    'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S.%f%z'
+}

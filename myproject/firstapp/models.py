@@ -161,8 +161,8 @@ class Order(models.Model):
         verbose_name_plural = 'Заказы'
 
 class Pos_Order(models.Model):
-    clothes = models.ForeignKey(Clothe, on_delete=models.PROTECT, verbose_name='Одежда')
-    order = models.ForeignKey(Order, on_delete=models.PROTECT, verbose_name='Заказ')
+    clothes = models.ForeignKey(Clothe, on_delete=models.CASCADE, verbose_name='Одежда')
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name='Заказ')
     count = models.PositiveSmallIntegerField(default=1, verbose_name='Количество одежды')
     discount = models.PositiveSmallIntegerField(default=0, verbose_name='Скидка')
 

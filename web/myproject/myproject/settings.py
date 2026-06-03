@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY', default='')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', 'web']
 
 
 # Application definition
@@ -80,11 +80,11 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': config('DB_HOST', default='127.0.0.1'),
-        'PORT': config('DB_PORT', default='5432'),
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER', default='postgres'),
-        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST_PGSQL', default='127.0.0.1'),
+        'PORT': config('DB_PORT_PGSQL', default='5432'),
+        'NAME': config('DB_NAME_PGSQL'),
+        'USER': config('DB_USER_PGSQL', default='postgres'),
+        'PASSWORD': config('DB_PASSWORD_PGSQL'),
     }
 }
 
